@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rufix – Agentur für Reputationsmarketing</title>
+  <meta name="description" content="Rufix ist Ihre Agentur für Reputationsmarketing. Wir verbessern fix Ihren Ruf – mit klarer Strategie, messbaren Bewertungen und professionellem Online-Auftritt." />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-soft: #e0ecff;
+      --accent: #22c55e;
+      --bg: #f5f5f7;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e0f2ff 0, #f5f5f7 55%, #f3f4f6 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: conic-gradient(from 180deg, #1d4ed8, #22c55e, #0ea5e9, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 16px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 52px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.06);
+      color: var(--primary);
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-slogan {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1d4ed8;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: white;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-ghost:hover {
+      background: white;
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 26px;
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.07), transparent 60%);
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #15803d;
+    }
+
+    .hero-steps {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 9px;
+      border-radius: 16px;
+      background: rgba(248, 250, 252, 0.9);
+    }
+
+    .step-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(148, 163, 184, 0.4);
+    }
+
+    .step-text {
+      font-size: 12px;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .step-badge {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      padding-top: 10px;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-card-footer strong {
+      color: var(--text);
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.03);
+    }
+
+    .section {
+      margin-bottom: 46px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 380px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 16px 15px 15px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(241, 245, 249, 0.9);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 17px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .card-icon img {
+      max-height: 38px;
+      object-fit: contain;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.08);
+      color: #1d4ed8;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .about-list {
+      margin-top: 10px;
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .about-list-bullet {
+      color: var(--accent);
+      font-size: 16px;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .about-card {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      border-radius: 20px;
+      padding: 16px 16px 14px;
+      color: #e5e7eb;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .about-card-title {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .about-card-highlight {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .about-card-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .about-card-badge {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .about-card-bottom {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 8px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9ca3af;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      font-family: inherit;
+      font-size: 13px;
+      padding: 7px 9px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      outline: none;
+      background: rgba(248, 250, 252, 0.9);
+      transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--primary);
+      background: #ffffff;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+      max-height: 180px;
+    }
+
+    .contact-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .contact-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact-meta strong {
+      color: var(--text);
+    }
+
+    .contact-meta a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(209, 213, 219, 0.6);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .about,
+      .contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 20px 16px 40px;
+      }
+
+      header {
+        margin-bottom: 28px;
+      }
+
+      .hero {
+        margin-bottom: 38px;
+      }
+
+      .section {
+        margin-bottom: 34px;
+      }
+
+      .contact-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">R</div>
+        <div class="brand-text">
+          <div class="brand-title">Rufix</div>
+          <div class="brand-subtitle">Agentur für Reputationsmarketing</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#about">Über Rufix</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Online-Reputation · Bewertungen · Sichtbarkeit</span>
+        </div>
+
+        <h1>Rufix – Ihre Agentur für Reputationsmarketing.</h1>
+        <div class="hero-slogan">Wir verbessern fix Ihren Ruf.</div>
+
+        <p class="hero-subtitle">
+          Wir helfen Unternehmen dabei, digital vertrauenswürdig wahrgenommen zu werden – mit mehr positiven Bewertungen,
+          besserer Sichtbarkeit und einem professionellen Auftritt auf den wichtigsten Plattformen.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn-primary">
+            Erstgespräch vereinbaren
+            <span>→</span>
+          </a>
+
+          <a href="#leistungen" class="btn-ghost">
+            Leistungen ansehen
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <strong>Spezialisiert auf Reputationsmarketing:</strong><br />
+          Google-Bewertungen, Branchenportale, Social Media & Bewertungsprofile – systematisch aufgebaut statt dem Zufall überlassen.
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Kurzüberblick Prozess">
+        <div class="hero-card-inner">
+          <div class="hero-card-header">
+            <div class="hero-card-title">
+              Ihr Weg zu einem starken Ruf
+              <span class="status-chip">Neue Erstgespräche möglich</span>
+            </div>
+          </div>
+
+          <div class="hero-steps">
+            <div class="step">
+              <div class="step-icon">💬</div>
+              <div class="step-text">
+                <strong>1. Erstgespräch</strong>
+                Analyse Ihres aktuellen Online-Rufs & Zieldefinition.
+              </div>
+              <span class="step-badge">kostenlos</span>
+            </div>
+
+            <div class="step">
+              <div class="step-icon">📍</div>
+              <div class="step-text">
+                <strong>2. Strategie</strong>
+                Konkreter Plan für Bewertungen, Profile & Kommunikation.
+              </div>
+              <span class="step-badge">klar & messbar</span>
+            </div>
+
+            <div class="step">
+              <div class="step-icon">⚙️</div>
+              <div class="step-text">
+                <strong>3. Implementierung</strong>
+                Technische und operative Umsetzung – inkl. Vorlagen & Abläufen.
+              </div>
+              <span class="step-badge">hands-on</span>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div>
+              Nächster Start möglich: <strong>in Kürze</strong><br />
+              <span>Ideal für Unternehmen, die ihren Ruf aktiv steuern wollen.</span>
+            </div>
+            <div>
+              <div class="tag-row">
+                <span class="tag">Google-Bewertungen</span>
+                <span class="tag">Reputationsmanagement</span>
+                <span class="tag">Online-Sichtbarkeit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- LEISTUNGEN -->
+    <section id="leistungen" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Leistungen von Rufix</h2>
+        <p class="section-subtitle">
+          Drei klare Phasen – von der ehrlichen Bestandsaufnahme bis zur laufenden Optimierung Ihrer Online-Reputation.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Erstgespräch -->
+        <article class="card">
+          <div class="card-icon">
+            <!-- Hier kannst du dein ERSTGESPRÄCH-ICON einfügen -->
+            <!-- Beispiel: <img src="images/erstgespraech.png" alt="Icon Erstgespräch" /> -->
+            <span>💬</span>
+          </div>
+          <h3 class="card-title">Erstgespräch</h3>
+          <p class="card-text">
+            Wir prüfen gemeinsam, wie Ihr Unternehmen online wahrgenommen wird:
+            Bewertungen, Profile, Suchergebnisse. Klar, ehrlich und verständlich.
+          </p>
+          <div class="card-meta">
+            <span class="pill">0 € · unverbindlich</span>
+            <span>ca. 30–45 Minuten</span>
+          </div>
+        </article>
+
+        <!-- Strategie -->
+        <article class="card">
+          <div class="card-icon">
+            <!-- Hier dein STRATEGIE-ICON -->
+            <!-- Beispiel: <img src="images/strategie.png" alt="Icon Strategie" /> -->
+            <span>📍</span>
+          </div>
+          <h3 class="card-title">Reputationsstrategie</h3>
+          <p class="card-text">
+            Wir entwickeln einen klaren Fahrplan: Welche Plattformen wichtig sind,
+            wie Sie Bewertungen aufbauen und wie Sie mit Feedback souverän umgehen.
+          </p>
+          <div class="card-meta">
+            <span class="pill">Individuelles Konzept</span>
+            <span>inkl. Prioritäten & Roadmap</span>
+          </div>
+        </article>
+
+        <!-- Implementierung -->
+        <article class="card">
+          <div class="card-icon">
+            <!-- Hier dein IMPLEMENTIERUNGS-ICON -->
+            <!-- Beispiel: <img src="images/implementierung.png" alt="Icon Implementierung" /> -->
+            <span>⚙️</span>
+          </div>
+          <h3 class="card-title">Implementierung</h3>
+          <p class="card-text">
+            Wir setzen die Strategie für Sie um: Profile optimieren, Prozesse einführen
+            und Vorlagen erstellen, damit positive Bewertungen zur Routine werden.
+          </p>
+          <div class="card-meta">
+            <span class="pill">Operative Umsetzung</span>
+            <span>laufend optimierbar</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABLAUF / ABOUT -->
+    <section id="ablauf" class="section">
+      <div class="section-header">
+        <h2 class="section-title">So läuft die Zusammenarbeit ab</h2>
+        <p class="section-subtitle">
+          Struktur statt Zufall: Wir machen Reputationsmarketing planbar – mit klaren Schritten,
+          transparenten Ergebnissen und einem Ansprechpartner.
+        </p>
+      </div>
+
+      <div class="about" id="about">
+        <div>
+          <h3 style="font-size:16px; margin-bottom:6px;">Reputation ist kein Zufall</h3>
+          <p class="about-text">
+            Ein guter Ruf entsteht nicht von allein – vor allem nicht online. Bewertungen, Suchergebnisse
+            und erste Eindrücke entscheiden in Sekunden, ob sich jemand für Ihr Unternehmen interessiert oder weiterscrollt.
+            Genau hier setzt Rufix an.
+          </p>
+          <ul class="about-list">
+            <li>
+              <span class="about-list-bullet">•</span>
+              <span>Wir analysieren, wie Ihr Unternehmen aktuell im Netz wirkt – aus Sicht potenzieller Kunden.</span>
+            </li>
+            <li>
+              <span class="about-list-bullet">•</span>
+              <span>Wir entwickeln eine Strategie, die zu Ihrem Markt, Ihrer Zielgruppe und Ihren Kapazitäten passt.</span>
+            </li>
+            <li>
+              <span class="about-list-bullet">•</span>
+              <span>Wir begleiten Sie bei der Umsetzung – vom Bewertungsprozess bis zur Reaktion auf Feedback.</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="about-card">
+          <div class="about-card-title">Rufix in Kurzform</div>
+          <div class="about-card-highlight">Fokus: Reputationsmarketing</div>
+          <div class="about-card-row">
+            <span>Schwerpunkte</span>
+            <span>Google · Portale · Social Proof</span>
+          </div>
+          <div class="about-card-row">
+            <span>Arbeitsweise</span>
+            <span>ehrlich · strukturiert · umsetzungsstark</span>
+          </div>
+          <div class="about-card-bottom">
+            <span>Nächster Schritt: Erstgespräch sichern</span>
+            <span>Antwort in der Regel innerhalb von 24–48h</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Kontakt & Erstgespräch</h2>
+        <p class="section-subtitle">
+          Erzählen Sie kurz, wer Sie sind und was Sie erreichen möchten – wir melden uns mit
+          einem Terminvorschlag für ein unverbindliches Erstgespräch.
+        </p>
+      </div>
+
+      <div class="contact">
+        <!-- HINWEIS: Passe hier die E-Mail-Adresse an -->
+        <form class="contact-form" action="mailto:INFO@RUFIX.DE" method="post" enctype="text/plain">
+          <div class="contact-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" placeholder="Ihr Name" required />
+            </div>
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input id="email" name="E-Mail" type="email" placeholder="ihre@mail.de" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="unternehmen">Unternehmen (optional)</label>
+            <input id="unternehmen" name="Unternehmen" type="text" placeholder="Firmenname oder Branche" />
+          </div>
+
+          <div class="field">
+            <label for="thema">Thema / Ziel</label>
+            <input id="thema" name="Thema" type="text" placeholder="Kurz: Was möchten Sie verbessern?" />
+          </div>
+
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="Nachricht" placeholder="Was sollte Rufix über Ihre aktuelle Situation wissen?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Anfrage senden
+          </button>
+
+          <p class="contact-hint">
+            Hinweis: Der Versand erfolgt über Ihr E-Mail-Programm. Alternativ können Sie direkt an
+            <strong>INFO@RUFIX.DE</strong> schreiben (bitte durch Ihre echte Adresse ersetzen).
+          </p>
+        </form>
+
+        <div>
+          <p class="contact-meta">
+            <strong>Direkter Kontakt zu Rufix</strong><br />
+            E-Mail: <a href="mailto:INFO@RUFIX.DE">INFO@RUFIX.DE</a><br />
+            Optional: Online-Call (z. B. Zoom, Teams)
+          </p>
+
+          <div class="contact-box">
+            <strong>Kostenloses Erstgespräch:</strong><br />
+            • Online-Ruf & Bewertungen besprechen<br />
+            • Zielbild & Prioritäten klären<br />
+            • Erste Einschätzung, welche Maßnahmen sinnvoll sind
+            <br /><br />
+            <span style="font-size:12px;">Keine Verpflichtung, kein Druck – Sie entscheiden danach in Ruhe, ob Sie mit Rufix starten möchten.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© <span id="year"></span> Rufix – Agentur für Reputationsmarketing. Wir verbessern fix Ihren Ruf.</span>
+      <span>
+        <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
+      </span>
+    </footer>
+  </main>
+
+  <script>
+    // aktuelles Jahr im Footer setzen
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
