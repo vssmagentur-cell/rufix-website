@@ -136,23 +136,18 @@
       align-items: center;
     }
 
-    .hero-big-logo {
-      width: 80%;
-      max-width: 360px;
-      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.12));
-    }
-
-    .hero-big-logo {
+.hero-big-logo {
   width: 80%;
   max-width: 360px;
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.12));
-  animation: floatLogo 4s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
 }
 
-@keyframes floatLogo {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+/* Logo expands when clicked */
+.hero-big-logo.is-expanded {
+  transform: scale(1.18);
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.25));
 }
 
     .badge {
@@ -777,9 +772,18 @@
     </footer>
   </main>
 
-  <script>
-    // aktuelles Jahr im Footer setzen
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  // aktuelles Jahr im Footer setzen
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Logo-Klick: expand / collapse
+  const heroLogo = document.querySelector(".hero-big-logo");
+  if (heroLogo) {
+    heroLogo.addEventListener("click", () => {
+      heroLogo.classList.toggle("is-expanded");
+    });
+  }
+</script>
 </body>
 </html>
+
