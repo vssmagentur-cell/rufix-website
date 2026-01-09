@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rufix – Agentur für Reputationsmarketing</title>
-  <meta name="description" content="Rufix ist Ihre Agentur für Reputationsmarketing. Wir verbessern fix Ihren Ruf – mit klarer Strategie, messbaren Bewertungen und professionellem Online-Auftritt." />
+  <meta name="description" content="Rufix ist Ihre Agentur für Reputationsmarketing. Wir machen Ihren guten Ruf sichtbar – mit klarer Strategie, messbaren Bewertungen und professionellem Online-Auftritt." />
 
   <style>
     :root {
@@ -63,17 +63,11 @@
       gap: 12px;
     }
 
+    /* UPDATED: real logo instead of gradient "R" box */
     .brand-logo {
-      width: 40px;
       height: 40px;
-      border-radius: 14px;
-      background: conic-gradient(from 180deg, #1d4ed8, #22c55e, #0ea5e9, #1d4ed8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: white;
-      font-size: 16px;
+      width: auto;
+      display: block;
     }
 
     .brand-text {
@@ -675,7 +669,11 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="brand-logo">R</div>
+        <img
+          class="brand-logo"
+          src="https://raw.githubusercontent.com/vssmagentur-cell/rufix-website/main/logo-rufix.png"
+          alt="Rufix – Agentur für Reputationsmarketing"
+        />
         <div class="brand-text">
           <div class="brand-title">Rufix</div>
           <div class="brand-subtitle">Agentur für Reputationsmarketing</div>
@@ -698,8 +696,9 @@
           <span>Online-Reputation · Bewertungen · Sichtbarkeit</span>
         </div>
 
-        <h1>Rufix – Ihre Agentur für Reputationsmarketing.</h1>
-        <div class="hero-slogan">Wir verbessern fix Ihren Ruf.</div>
+        <!-- UPDATED HEADLINE + CLAIM -->
+        <h1>Wir machen Ihren guten Ruf sichtbar.</h1>
+        <div class="hero-slogan">Mehr Bewertungen. Mehr Vertrauen. Mehr Kunden.</div>
 
         <p class="hero-subtitle">
           Wir helfen Unternehmen dabei, digital vertrauenswürdig wahrgenommen zu werden – mit mehr positiven Bewertungen,
@@ -748,7 +747,7 @@
                 <strong>2. Strategie</strong>
                 Konkreter Plan für Bewertungen, Profile & Kommunikation.
               </div>
-              <span class="step-badge">klar & messbar</span>
+              <span class="step-badge">klar &amp; messbar</span>
             </div>
 
             <div class="step">
@@ -791,8 +790,6 @@
         <!-- Erstgespräch -->
         <article class="card">
           <div class="card-icon">
-            <!-- Hier kannst du dein ERSTGESPRÄCH-ICON einfügen -->
-            <!-- Beispiel: <img src="images/erstgespraech.png" alt="Icon Erstgespräch" /> -->
             <span>💬</span>
           </div>
           <h3 class="card-title">Erstgespräch</h3>
@@ -809,8 +806,6 @@
         <!-- Strategie -->
         <article class="card">
           <div class="card-icon">
-            <!-- Hier dein STRATEGIE-ICON -->
-            <!-- Beispiel: <img src="images/strategie.png" alt="Icon Strategie" /> -->
             <span>📍</span>
           </div>
           <h3 class="card-title">Reputationsstrategie</h3>
@@ -820,15 +815,13 @@
           </p>
           <div class="card-meta">
             <span class="pill">Individuelles Konzept</span>
-            <span>inkl. Prioritäten & Roadmap</span>
+            <span>inkl. Prioritäten &amp; Roadmap</span>
           </div>
         </article>
 
         <!-- Implementierung -->
         <article class="card">
           <div class="card-icon">
-            <!-- Hier dein IMPLEMENTIERUNGS-ICON -->
-            <!-- Beispiel: <img src="images/implementierung.png" alt="Icon Implementierung" /> -->
             <span>⚙️</span>
           </div>
           <h3 class="card-title">Implementierung</h3>
@@ -900,7 +893,7 @@
     <!-- KONTAKT -->
     <section id="kontakt" class="section">
       <div class="section-header">
-        <h2 class="section-title">Kontakt & Erstgespräch</h2>
+        <h2 class="section-title">Kontakt &amp; Erstgespräch</h2>
         <p class="section-subtitle">
           Erzählen Sie kurz, wer Sie sind und was Sie erreichen möchten – wir melden uns mit
           einem Terminvorschlag für ein unverbindliches Erstgespräch.
@@ -950,13 +943,13 @@
           <p class="contact-meta">
             <strong>Direkter Kontakt zu Rufix</strong><br />
             E-Mail: <a href="mailto:INFO@RUFIX.DE">INFO@RUFIX.DE</a><br />
-            Optional: Online-Call (z. B. Zoom, Teams)
+            Optional: Online-Call (z.&nbsp;B. Zoom, Teams)
           </p>
 
           <div class="contact-box">
             <strong>Kostenloses Erstgespräch:</strong><br />
-            • Online-Ruf & Bewertungen besprechen<br />
-            • Zielbild & Prioritäten klären<br />
+            • Online-Ruf &amp; Bewertungen besprechen<br />
+            • Zielbild &amp; Prioritäten klären<br />
             • Erste Einschätzung, welche Maßnahmen sinnvoll sind
             <br /><br />
             <span style="font-size:12px;">Keine Verpflichtung, kein Druck – Sie entscheiden danach in Ruhe, ob Sie mit Rufix starten möchten.</span>
@@ -967,7 +960,7 @@
 
     <!-- FOOTER -->
     <footer>
-      <span>© <span id="year"></span> Rufix – Agentur für Reputationsmarketing. Wir verbessern fix Ihren Ruf.</span>
+      <span>© <span id="year"></span> Rufix – Agentur für Reputationsmarketing. Wir machen Ihren guten Ruf sichtbar.</span>
       <span>
         <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
       </span>
