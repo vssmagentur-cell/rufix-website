@@ -295,11 +295,11 @@
       justify-content: center;
       margin-bottom: 10px;
       overflow: hidden;
-      font-size: 24px;
     }
 
     .card-icon img {
-      max-height: 38px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
 
@@ -333,7 +333,7 @@
       color: #1d4ed8;
     }
 
-    /* ABOUT: jetzt full-width, kein 2-Spalten-Grid mehr */
+    /* ABOUT: full-width single column */
     .about {
       display: block;
       max-width: 720px;
@@ -365,7 +365,7 @@
       margin-top: 1px;
     }
 
-    /* KONTAKT: linke Spalte größer */
+    /* CONTACT: larger left column */
     .contact {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -504,7 +504,7 @@
       background: rgba(255, 255, 255, 0.98);
     }
 
-    /* Service cards as accordion */
+    /* Service cards as accordion / hover reveal */
     .service-card {
       padding: 0;
       overflow: hidden;
@@ -555,7 +555,18 @@
     .service-card.is-open .service-card-body {
       opacity: 1;
       transform: translateY(0);
-      max-height: 300px; /* reicht locker für deinen Text */
+      max-height: 300px; /* enough for content */
+    }
+
+    /* Desktop: reveal text on hover over card (incl. picture) */
+    .service-card:hover .service-card-body {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 300px;
+    }
+
+    .service-card:hover .service-card-toggle {
+      transform: rotate(45deg);
     }
 
     /* Responsive */
@@ -647,9 +658,9 @@
       </nav>
     </header>
 
-    <!-- HERO: Logo links, Text rechts -->
+    <!-- HERO: Logo left, text right -->
     <section class="hero hero-reversed">
-      <!-- LINKS: großes Logo -->
+      <!-- LEFT: big logo -->
       <div class="hero-logo-wrapper reveal" data-delay="0s">
         <img
           src="https://raw.githubusercontent.com/vssmagentur-cell/rufix-website/main/logo-rufix.png"
@@ -658,7 +669,7 @@
         />
       </div>
 
-      <!-- RECHTS: Text / Claim / CTA -->
+      <!-- RIGHT: text / claim / CTA -->
       <div class="reveal" data-delay="0.12s">
         <div class="badge">
           <span class="badge-dot"></span>
@@ -702,7 +713,10 @@
         <article class="card service-card reveal" data-delay="0s">
           <button class="service-card-header" type="button">
             <div class="card-icon">
-              <span>💬</span>
+              <img
+                src="https://raw.githubusercontent.com/vssmagentur-cell/rufix-website/main/gesprach.png"
+                alt="Erstgespräch Icon"
+              />
             </div>
             <div class="service-card-header-inner">
               <h3 class="card-title">Erstgespräch</h3>
@@ -720,11 +734,14 @@
           </div>
         </article>
 
-        <!-- Strategie -->
+        <!-- Reputationsstrategie -->
         <article class="card service-card reveal" data-delay="0.08s">
           <button class="service-card-header" type="button">
             <div class="card-icon">
-              <span>📍</span>
+              <img
+                src="https://raw.githubusercontent.com/vssmagentur-cell/rufix-website/main/strategy.png"
+                alt="Reputationsstrategie Icon"
+              />
             </div>
             <div class="service-card-header-inner">
               <h3 class="card-title">Reputationsstrategie</h3>
@@ -747,7 +764,10 @@
         <article class="card service-card reveal" data-delay="0.16s">
           <button class="service-card-header" type="button">
             <div class="card-icon">
-              <span>⚙️</span>
+              <img
+                src="https://raw.githubusercontent.com/vssmagentur-cell/rufix-website/main/implement.png"
+                alt="Implementierung Icon"
+              />
             </div>
             <div class="service-card-header-inner">
               <h3 class="card-title">Implementierung</h3>
@@ -807,7 +827,7 @@
       </div>
 
       <div class="contact">
-        <!-- HINWEIS: Passe hier die E-Mail-Adresse an -->
+        <!-- NOTE: adjust E-Mail address if needed -->
         <form class="contact-form reveal" data-delay="0s" action="mailto:INFO@RUFIX.DE" method="post" enctype="text/plain">
           <div class="contact-row">
             <div class="field">
@@ -873,10 +893,10 @@
   </main>
 
   <script>
-    // aktuelles Jahr im Footer setzen
+    // set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Logo-Klick: expand / collapse
+    // Logo click: expand / collapse
     const heroLogo = document.querySelector(".hero-big-logo");
     if (heroLogo) {
       heroLogo.addEventListener("click", () => {
@@ -907,11 +927,11 @@
 
       revealElements.forEach((el) => observer.observe(el));
     } else {
-      // Fallback: sofort anzeigen
+      // fallback: show immediately
       revealElements.forEach((el) => el.classList.add("reveal-visible"));
     }
 
-    // Service cards accordion behavior
+    // Service cards: accordion behavior for mobile / click
     const serviceCards = document.querySelectorAll(".service-card");
 
     serviceCards.forEach((card) => {
@@ -919,10 +939,10 @@
       header.addEventListener("click", () => {
         const isOpen = card.classList.contains("is-open");
 
-        // Alle schließen
+        // close all
         serviceCards.forEach((c) => c.classList.remove("is-open"));
 
-        // Aktuelle öffnen, wenn sie vorher zu war
+        // open current if it was closed
         if (!isOpen) {
           card.classList.add("is-open");
         }
