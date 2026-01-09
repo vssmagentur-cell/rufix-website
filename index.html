@@ -295,6 +295,7 @@
       justify-content: center;
       margin-bottom: 10px;
       overflow: hidden;
+      font-size: 24px;
     }
 
     .card-icon img {
@@ -320,6 +321,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .pill {
@@ -501,6 +504,60 @@
       background: rgba(255, 255, 255, 0.98);
     }
 
+    /* Service cards as accordion */
+    .service-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .service-card-header {
+      width: 100%;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 15px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .service-card-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 8px;
+    }
+
+    .service-card-toggle {
+      font-size: 18px;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+    }
+
+    .service-card.is-open .service-card-toggle {
+      transform: rotate(45deg); /* + becomes x-ish */
+    }
+
+    .service-card-body {
+      padding: 0 15px 15px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition:
+        max-height 0.25s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .service-card.is-open .service-card-body {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 300px; /* reicht locker für deinen Text */
+    }
+
     /* Responsive */
     @media (max-width: 880px) {
       header {
@@ -642,56 +699,70 @@
 
       <div class="grid-3">
         <!-- Erstgespräch -->
-        <article class="card reveal" data-delay="0s">
-          <div class="card-icon">
-            <span>💬</span>
-          </div>
-          <h3 class="card-title">Erstgespräch</h3>
-          <p class="card-text">
-            Wir prüfen gemeinsam, wie Ihr Unternehmen online wahrgenommen wird:
-            Bewertungen, Profile, Suchergebnisse. Klar, ehrlich und verständlich.
-          </p>
-          <div class="card-meta">
-            <span class="pill">0 € · unverbindlich</span>
-            <span>ca. 30–45 Minuten</span>
+        <article class="card service-card reveal" data-delay="0s">
+          <button class="service-card-header" type="button">
+            <div class="card-icon">
+              <span>💬</span>
+            </div>
+            <div class="service-card-header-inner">
+              <h3 class="card-title">Erstgespräch</h3>
+              <span class="service-card-toggle">+</span>
+            </div>
+          </button>
+          <div class="service-card-body">
+            <p class="card-text">
+              Wir prüfen gemeinsam, wie Ihr Unternehmen online wahrgenommen wird:
+              Bewertungen, Profile, Suchergebnisse. Klar, ehrlich und verständlich.
+            </p>
+            <div class="card-meta">
+              <span class="pill">0 € · unverbindlich</span>
+            </div>
           </div>
         </article>
 
         <!-- Strategie -->
-        <article class="card reveal" data-delay="0.08s">
-          <div class="card-icon">
-            <span>📍</span>
-          </div>
-
-          <h3 class="card-title">Reputationsstrategie</h3>
-
-          <p class="card-text">
-            Wir identifizieren und minimieren negative Bewertungen und führen Ihr Unternehmen
-            innerhalb weniger Tage wieder deutlich näher an eine starke 5-Sterne-Google-Bewertung heran.
-          </p>
-
-          <div class="card-meta">
-            <span class="pill">Individuelles Konzept</span>
-            <span>inkl. Prioritäten &amp; Roadmap</span>
+        <article class="card service-card reveal" data-delay="0.08s">
+          <button class="service-card-header" type="button">
+            <div class="card-icon">
+              <span>📍</span>
+            </div>
+            <div class="service-card-header-inner">
+              <h3 class="card-title">Reputationsstrategie</h3>
+              <span class="service-card-toggle">+</span>
+            </div>
+          </button>
+          <div class="service-card-body">
+            <p class="card-text">
+              Wir identifizieren und minimieren negative Bewertungen und führen Ihr Unternehmen
+              innerhalb weniger Tage wieder deutlich näher an eine starke 5-Sterne-Google-Bewertung heran.
+            </p>
+            <div class="card-meta">
+              <span class="pill">Individuelles Konzept</span>
+              <span>inkl. Prioritäten &amp; Roadmap</span>
+            </div>
           </div>
         </article>
 
         <!-- Implementierung -->
-        <article class="card reveal" data-delay="0.16s">
-          <div class="card-icon">
-            <span>⚙️</span>
-          </div>
-
-          <h3 class="card-title">Implementierung</h3>
-
-          <p class="card-text">
-            Wir übernehmen die Kommunikation mit den relevanten Plattformen und nutzen unser spezialisiertes Tool,
-            um unzulässige oder falsche Bewertungen korrekt zu melden und deren Entfernung anzustoßen.
-          </p>
-
-          <div class="card-meta">
-            <span class="pill">Operative Umsetzung</span>
-            <span>laufend optimierbar</span>
+        <article class="card service-card reveal" data-delay="0.16s">
+          <button class="service-card-header" type="button">
+            <div class="card-icon">
+              <span>⚙️</span>
+            </div>
+            <div class="service-card-header-inner">
+              <h3 class="card-title">Implementierung</h3>
+              <span class="service-card-toggle">+</span>
+            </div>
+          </button>
+          <div class="service-card-body">
+            <p class="card-text">
+              Wir übernehmen die Kommunikation mit den relevanten Plattformen und nutzen unser spezialisiertes Tool,
+              um unzulässige oder falsche Bewertungen korrekt zu melden und deren Entfernung anzustoßen.
+            </p>
+            <div class="card-meta">
+              <span class="pill">Operative Umsetzung</span>
+              <span>laufend optimierbar</span>
+            </div>
           </div>
         </article>
       </div>
@@ -839,6 +910,24 @@
       // Fallback: sofort anzeigen
       revealElements.forEach((el) => el.classList.add("reveal-visible"));
     }
+
+    // Service cards accordion behavior
+    const serviceCards = document.querySelectorAll(".service-card");
+
+    serviceCards.forEach((card) => {
+      const header = card.querySelector(".service-card-header");
+      header.addEventListener("click", () => {
+        const isOpen = card.classList.contains("is-open");
+
+        // Alle schließen
+        serviceCards.forEach((c) => c.classList.remove("is-open"));
+
+        // Aktuelle öffnen, wenn sie vorher zu war
+        if (!isOpen) {
+          card.classList.add("is-open");
+        }
+      });
+    });
   </script>
 </body>
 </html>
