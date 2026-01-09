@@ -125,7 +125,7 @@
       margin-bottom: 52px;
     }
 
-    /* Neue Variante: Logo links, Text rechts */
+    /* Variante: Logo links, Text rechts */
     .hero-reversed {
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     }
@@ -322,11 +322,11 @@
       color: #1d4ed8;
     }
 
+    /* ABOUT: jetzt full-width, kein 2-Spalten-Grid mehr */
     .about {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 22px;
-      align-items: start;
+      display: block;
+      max-width: 720px;
+      margin-bottom: 40px;
     }
 
     .about-text {
@@ -354,54 +354,12 @@
       margin-top: 1px;
     }
 
-    .about-card {
-      background: linear-gradient(135deg, #0f172a, #020617);
-      border-radius: 20px;
-      padding: 16px 16px 14px;
-      color: #e5e7eb;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-    }
-
-    .about-card-title {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    .about-card-highlight {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .about-card-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: #9ca3af;
-      margin-bottom: 6px;
-    }
-
-    .about-card-badge {
-      font-size: 11px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .about-card-bottom {
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 8px;
-      font-size: 11px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #9ca3af;
-    }
-
+    /* KONTAKT: linke Spalte größer */
     .contact {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 20px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
     }
 
     .contact-form {
@@ -533,7 +491,6 @@
         margin: 0 auto;
       }
 
-      .about,
       .contact {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -660,47 +617,49 @@
           </p>
           <div class="card-meta">
             <span class="pill">0 € · unverbindlich</span>
+            <span>ca. 30–45 Minuten</span>
           </div>
         </article>
 
-   <!-- Strategie -->
-<article class="card">
-  <div class="card-icon">
-    <span>📍</span>
-  </div>
+        <!-- Strategie -->
+        <article class="card">
+          <div class="card-icon">
+            <span>📍</span>
+          </div>
 
-  <h3 class="card-title">Reputationsstrategie</h3>
+          <h3 class="card-title">Reputationsstrategie</h3>
 
-  <p class="card-text">
-    Wir identifizieren und minimieren negative Bewertungen und führen Ihr Unternehmen 
-    innerhalb weniger Tage wieder deutlich näher an eine starke 5-Sterne-Google-Bewertung heran.
-  </p>
+          <p class="card-text">
+            Wir identifizieren und minimieren negative Bewertungen und führen Ihr Unternehmen
+            innerhalb weniger Tage wieder deutlich näher an eine starke 5-Sterne-Google-Bewertung heran.
+          </p>
 
-  <div class="card-meta">
-    <span class="pill">Individuelles Konzept</span>
-    <span>inkl. Prioritäten &amp; Roadmap</span>
-  </div>
-</article>
+          <div class="card-meta">
+            <span class="pill">Individuelles Konzept</span>
+            <span>inkl. Prioritäten &amp; Roadmap</span>
+          </div>
+        </article>
 
-<!-- Implementierung -->
-<article class="card">
-  <div class="card-icon">
-    <span>⚙️</span>
-  </div>
+        <!-- Implementierung -->
+        <article class="card">
+          <div class="card-icon">
+            <span>⚙️</span>
+          </div>
 
-  <h3 class="card-title">Implementierung</h3>
+          <h3 class="card-title">Implementierung</h3>
 
-  <p class="card-text">
-    Wir übernehmen die Kommunikation mit den relevanten Plattformen und nutzen unser spezialisiertes Tool,
-    um unzulässige oder falsche Bewertungen korrekt zu melden und deren Entfernung anzustoßen.
-  </p>
+          <p class="card-text">
+            Wir übernehmen die Kommunikation mit den relevanten Plattformen und nutzen unser spezialisiertes Tool,
+            um unzulässige oder falsche Bewertungen korrekt zu melden und deren Entfernung anzustoßen.
+          </p>
 
-  <div class="card-meta">
-    <span class="pill">Operative Umsetzung</span>
-    <span>laufend optimierbar</span>
-  </div>
-</article>
-
+          <div class="card-meta">
+            <span class="pill">Operative Umsetzung</span>
+            <span>laufend optimierbar</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- ABLAUF / ABOUT -->
     <section id="ablauf" class="section">
@@ -731,15 +690,14 @@
             </li>
           </ul>
         </div>
-
       </div>
     </section>
 
-  <!-- KONTAKT -->
-<section id="kontakt" class="section">
-  <div class="section-header">
-    <h2 class="section-title">Kontakt &amp; Erstgespräch</h2>
-  </div>
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Kontakt &amp; Erstgespräch</h2>
+      </div>
 
       <div class="contact">
         <!-- HINWEIS: Passe hier die E-Mail-Adresse an -->
