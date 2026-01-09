@@ -63,7 +63,7 @@
       gap: 12px;
     }
 
-    /* UPDATED: real logo instead of gradient "R" box */
+    /* Logo in der Navigation */
     .brand-logo {
       height: 40px;
       width: auto;
@@ -116,12 +116,30 @@
       width: 100%;
     }
 
+    /* HERO-GRID BASIS */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: 32px;
       align-items: center;
       margin-bottom: 52px;
+    }
+
+    /* Neue Variante: Logo links, Text rechts */
+    .hero-reversed {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    }
+
+    .hero-logo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-big-logo {
+      width: 80%;
+      max-width: 360px;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.12));
     }
 
     .badge {
@@ -220,124 +238,6 @@
 
     .hero-meta strong {
       color: var(--text);
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.94);
-      border-radius: 26px;
-      box-shadow: var(--shadow-soft);
-      padding: 20px 20px 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -60%;
-      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.07), transparent 60%);
-    }
-
-    .hero-card-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .hero-card-title {
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .status-chip {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-      color: #15803d;
-    }
-
-    .hero-steps {
-      display: grid;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 9px;
-      border-radius: 16px;
-      background: rgba(248, 250, 252, 0.9);
-    }
-
-    .step-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      background: white;
-      box-shadow: 0 4px 10px rgba(148, 163, 184, 0.4);
-    }
-
-    .step-text {
-      font-size: 12px;
-    }
-
-    .step-text strong {
-      display: block;
-      font-size: 12px;
-    }
-
-    .step-badge {
-      font-size: 11px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-    }
-
-    .hero-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px dashed rgba(148, 163, 184, 0.4);
-      padding-top: 10px;
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-card-footer strong {
-      color: var(--text);
-    }
-
-    .tag-row {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-
-    .tag {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.03);
     }
 
     .section {
@@ -618,12 +518,19 @@
         flex-wrap: wrap;
       }
 
-      .hero {
+      .hero,
+      .hero-reversed {
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .hero-card {
-        order: -1;
+      .hero-logo-wrapper {
+        margin-bottom: 20px;
+      }
+
+      .hero-big-logo {
+        width: 55%;
+        max-width: 240px;
+        margin: 0 auto;
       }
 
       .about,
@@ -688,15 +595,24 @@
       </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- HERO: Logo links, Text rechts -->
+    <section class="hero hero-reversed">
+      <!-- LINKS: großes Logo -->
+      <div class="hero-logo-wrapper">
+        <img
+          src="https://raw.githubusercontent.com/vssmagentur-cell/rufix-website/main/logo-rufix.png"
+          alt="Rufix Logo"
+          class="hero-big-logo"
+        />
+      </div>
+
+      <!-- RECHTS: Text / Claim / CTA -->
       <div>
         <div class="badge">
           <span class="badge-dot"></span>
           <span>Online-Reputation · Bewertungen · Sichtbarkeit</span>
         </div>
 
-        <!-- UPDATED HEADLINE + CLAIM -->
         <h1>Wir machen Ihren guten Ruf sichtbar.</h1>
         <div class="hero-slogan">Mehr Bewertungen. Mehr Vertrauen. Mehr Kunden.</div>
 
@@ -707,8 +623,7 @@
 
         <div class="hero-actions">
           <a href="#kontakt" class="btn-primary">
-            Erstgespräch vereinbaren
-            <span>→</span>
+            Erstgespräch vereinbaren →
           </a>
 
           <a href="#leistungen" class="btn-ghost">
@@ -721,60 +636,6 @@
           Google-Bewertungen, Branchenportale, Social Media & Bewertungsprofile – systematisch aufgebaut statt dem Zufall überlassen.
         </div>
       </div>
-
-      <aside class="hero-card" aria-label="Kurzüberblick Prozess">
-        <div class="hero-card-inner">
-          <div class="hero-card-header">
-            <div class="hero-card-title">
-              Ihr Weg zu einem starken Ruf
-              <span class="status-chip">Neue Erstgespräche möglich</span>
-            </div>
-          </div>
-
-          <div class="hero-steps">
-            <div class="step">
-              <div class="step-icon">💬</div>
-              <div class="step-text">
-                <strong>1. Erstgespräch</strong>
-                Analyse Ihres aktuellen Online-Rufs & Zieldefinition.
-              </div>
-              <span class="step-badge">kostenlos</span>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">📍</div>
-              <div class="step-text">
-                <strong>2. Strategie</strong>
-                Konkreter Plan für Bewertungen, Profile & Kommunikation.
-              </div>
-              <span class="step-badge">klar &amp; messbar</span>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">⚙️</div>
-              <div class="step-text">
-                <strong>3. Implementierung</strong>
-                Technische und operative Umsetzung – inkl. Vorlagen & Abläufen.
-              </div>
-              <span class="step-badge">hands-on</span>
-            </div>
-          </div>
-
-          <div class="hero-card-footer">
-            <div>
-              Nächster Start möglich: <strong>in Kürze</strong><br />
-              <span>Ideal für Unternehmen, die ihren Ruf aktiv steuern wollen.</span>
-            </div>
-            <div>
-              <div class="tag-row">
-                <span class="tag">Google-Bewertungen</span>
-                <span class="tag">Reputationsmanagement</span>
-                <span class="tag">Online-Sichtbarkeit</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
     </section>
 
     <!-- LEISTUNGEN -->
